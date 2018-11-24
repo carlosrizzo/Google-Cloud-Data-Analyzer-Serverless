@@ -1,0 +1,4 @@
+google-cloud-pubsub>=0.35.4
+google>=2.0.1
+google-oauth>=1.0.1
+google-cloud-storage>=1.6.0

@@ -1,0 +1,5 @@
+google>=2.0.1
+google-cloud-storage>=1.6.0
+google-cloud-datastore>=1.6.0
+google-cloud-pubsub>=0.38.0
+pandas>=0.23.4

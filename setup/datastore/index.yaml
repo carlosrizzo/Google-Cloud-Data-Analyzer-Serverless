@@ -1,0 +1,7 @@
+indexes:
+- kind: gcf-report-manager
+  properties:
+  - name: prime_genre
+    direction: asc
+  - name: rating_count_tot
+    direction: desc
