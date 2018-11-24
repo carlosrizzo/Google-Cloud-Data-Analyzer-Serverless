@@ -1,4 +1,4 @@
-# Google Cloud Data Analyze Serverless
+# Google Cloud Data Analyzer Serverless
 
 This sample demonstrates how to upload a CSV file into Cloud Storage and trigger a Cloud Functions for data analysis.
 
