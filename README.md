@@ -1,6 +1,6 @@
 # Google Cloud Data Analyze Serverless
 
-This sample demonstrates how to upload and download encrypted files in Google Storage using Cloud Functions.
+This sample demonstrates how to upload a CSV file into Cloud Storage and trigger a Cloud Functions for data analysis.
 
 
 ## Functions Code
@@ -16,12 +16,12 @@ The dependencies are listed in [functions/gcf-download-file/requirements.txt](fu
 
 ## Trigger rules
 
-The functions triggers on http request.
+The functions triggers on http request and on Create new file in specific Bucket.
 
 
 ## Storage and Database Structure
 
-Users upload an image to Storage to the auto generated path `/<external ref uuid>/<encrypted uuid>/<filename>` and save the path and file reference in Cloud Datastore.
+Users upload an image to Storage to the auto generated path `/<hash uuid>/<filename>` and save the path and file reference in Cloud Datastore.
 
 ## Setting up the sample
 
