@@ -1,0 +1,8 @@
+d = df[['id','track_name','rating_count_tot','size_bytes','price','prime_genre']].sort_values(by='rating_count_tot', ascending=False)[0:1]
+d = df[(df.prime_genre=='News')].sort_values(by='rating_count_tot', ascending=False)[0:1]
+
+    # Define columns
+    x,id,track_name,size_bytes,currency,price, \
+    rating_count_tot,rating_count_ver,user_rating, \
+    user_rating_ver,ver,cont_rating,prime_genre, \
+    sup_devices_num,ipadSc_urls_num,lang_num,vpp_lic = d.columns.values
