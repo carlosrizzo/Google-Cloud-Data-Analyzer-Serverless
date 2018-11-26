@@ -5,15 +5,15 @@ This sample demonstrates how to upload a CSV file into Cloud Storage and trigger
 
 ## Functions Code
 
-Upload
+* Upload
 See file [functions/gcf-upload-file/main.py](functions/gcf-upload-file/main.py) for the code.
 The dependencies are listed in [functions/gcf-upload-file/requirements.txt](functions/gcf-upload-file/requirements.txt).
 
-Download
+* Download
 See file [functions/gcf-download-file/main.py](functions/gcf-download-file/main.py) for the code.
 The dependencies are listed in [functions/gcf-download-file/requirements.txt](functions/gcf-download-file/requirements.txt).
 
-Parser
+* Parser
 See file [functions/gcf-parser-file/main.py](functions/gcf-parser-file/main.py) for the code.
 The dependencies are listed in [functions/gcf-parser-file/requirements.txt](functions/gcf-parser-file/requirements.txt).
 
