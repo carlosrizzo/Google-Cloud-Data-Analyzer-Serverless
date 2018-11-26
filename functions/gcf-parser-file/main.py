@@ -28,6 +28,11 @@ def execute(data, context):
 
     # Read File
     df = pandas.read_csv(StringIO(file), sep=',')
+    # Define columns
+    x,id,track_name,size_bytes,currency,price, \
+    rating_count_tot,rating_count_ver,user_rating, \
+    user_rating_ver,ver,cont_rating,prime_genre, \
+    sup_devices_num,ipadSc_urls_num,lang_num,vpp_lic = df.columns.values
     
     # Filter News
     news = df[(df.prime_genre=='News')]
