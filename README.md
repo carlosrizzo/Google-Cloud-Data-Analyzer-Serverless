@@ -45,11 +45,11 @@ This sample comes with a Function and web-based UI for testing the function. To 
 
 To test the sample:
  1. Download and install gcloud command line tool [Console](https://cloud.google.com/sdk/install)
- 2. From setup path [setup/](setup/) execute:
+ 2. Create a virtualenv python3.7 and from setup path [setup/](setup/) execute:
  ```
- 
  export PROJECT_ID=[yout project id]
  export GOOGLE_APPLICATION_CREDENTIALS=[your local path from JSON service account key]
+ python setup.py
  
  ```
  3. From setup datastore path [setup/datastore/](setup/datastore) execute:

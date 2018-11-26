@@ -36,6 +36,7 @@ def execute(data, context):
     
     # Filter Music and Book
     music_book = df[(df.prime_genre=='Music') | (df.prime_genre=='Book')]
+    # Short Music and Book
     music_book_10 = music_book[['id','track_name','rating_count_tot','size_bytes','price','prime_genre']].sort_values(by='rating_count_tot', ascending=False)[0:10]
     
     # Init Datastore Client
