@@ -52,11 +52,10 @@ To test the sample:
  python setup.py
  
  ```
- 3. From setup datastore path [setup/datastore/](setup/datastore) execute:
+ 3. From setup/datastore path [setup/datastore/](setup/datastore) execute:
  ```
  gcloud datastore create-indexes index.yaml
  ``` 
- 
  4. From function path [functions/gcf-upload-file/](functions/gcf-upload-file/) execute:
  ```
  export FUNCTION_NAME="gcf-upload-file";
@@ -105,3 +104,37 @@ timeout: 60s
 updateTime: '2018-11-22T19:38:44Z'
 versionId: '1'
 ```
+ 8. From function path [functions/gcf-download-file/](functions/gcf-download-file/) execute:
+ ```
+ export FUNCTION_NAME="gcf-download-file";
+ gcloud beta functions deploy ${FUNCTION_NAME} --entry-point execute --memory 128MB --runtime python37 --trigger-http;
+ ```
+ 9. Return something like that:
+```
+Deploying function (may take a while - up to 2 minutes)...done.                                                                                                                                            
+availableMemoryMb: 128
+entryPoint: execute
+httpsTrigger:
+  url: https://[region]-[project id].cloudfunctions.net/gcf-download-file
+labels:
+  deployment-tool: cli-gcloud
+name: projects/[project id]/locations/[region]/functions/gcf-download-file
+runtime: python37
+serviceAccountEmail: [service account email]
+status: ACTIVE
+timeout: 60s
+updateTime: '2018-11-25T13:09:23Z'
+versionId: '1'
+```
+10. Open upload form from url https://[region]-[project id].cloudfunctions.net/gcf-upload-file and submit [static-files/AppleStore.csv](static-files/AppleStore.csv)
+11. Return something like that:
+```
+{"result": "Success", "filename": "AppleStore.csv", "hash": "23be2a238e329154b090c74498d270a8"}
+````
+12. Open download form from url https://[region]-[project id].cloudfunctions.net/gcf-download-file and select type of download. 
+13. Return something like that:
+```
+[{"id": 284035177, "track_name": "Pandora - Music & Radio", "rating_count_tot": 1126879, "size_bytes": 130242560, "price": 0.0, "prime_genre": "Music"}, {"id": 284993459, "track_name": "Shazam - Discover music, artists, videos & lyrics", "rating_count_tot": 402925, "size_bytes": 147093504, "price": 0.0, "prime_genre": "Music"}, {"id": 290638154, "track_name": "iHeartRadio \u2013 Free Music & Radio Stations", "rating_count_tot": 293228, "size_bytes": 116443136, "price": 0.0, "prime_genre": "Music"}, {"id": 302584613, "track_name": "Kindle \u2013 Read eBooks, Magazines & Textbooks", "rating_count_tot": 252076, "size_bytes": 169747456, "price": 0.0, "prime_genre": "Book"}, {"id": 324684580, "track_name": "Spotify Music", "rating_count_tot": 878563, "size_bytes": 132510720, "price": 0.0, "prime_genre": "Music"}, {"id": 333903271, "track_name": "Twitter", "rating_count_tot": 354058, "size_bytes": 210569216, "price": 0.0, "prime_genre": "News"}, {"id": 336353151, "track_name": "SoundCloud - Music & Audio", "rating_count_tot": 135744, "size_bytes": 105009152, "price": 0.0, "prime_genre": "Music"}, {"id": 418987775, "track_name": "TuneIn Radio - MLB NBA Audiobooks Podcasts Music", "rating_count_tot": 110420, "size_bytes": 101735424, "price": 0.0, "prime_genre": "Music"}, {"id": 421254504, "track_name": "Magic Piano by Smule", "rating_count_tot": 131695, "size_bytes": 55030784, "price": 0.0, "prime_genre": "Music"}, {"id": 509993510, "track_name": "Smule Sing!", "rating_count_tot": 119316, "size_bytes": 109940736, "price": 0.0, "prime_genre": "Music"}, {"id": 510855668, "track_name": "Amazon Music", "rating_count_tot": 106235, "size_bytes": 77778944, "price": 0.0, "prime_genre": "Music"}]
+````
+
+
