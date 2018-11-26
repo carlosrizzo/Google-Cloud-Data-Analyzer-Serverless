@@ -21,8 +21,6 @@ scoped_credentials = cred.with_scopes(
     ['https://www.googleapis.com/auth/cloud-platform'])
 
 def main():
-	# Setup Pub Sub Topic
-	topic = setup_pub_sub_topic('gcf-file-process')
 	# Setup Storage Buckets
 	bucket_uploaded_files = setup_storage_bucket('gcf-uploaded-files')
 	bucket_downloaded_files = setup_storage_bucket('gcf-downloaded-files')
@@ -31,24 +29,6 @@ def main():
 	upload_static_files(bucket_static_files, 'gcf-uploader.html')
 	upload_static_files(bucket_static_files, 'gcf-downloader.html')
 	return None
-
-def setup_pub_sub_topic(topic_name):
-	# Publisher Client
-	publisher = pubsub.PublisherClient(credentials=scoped_credentials)
-	# Topic Path
-	topic_path = publisher.topic_path(PROJECT_ID, topic_name)
-	# Create Topic
-	try:
-		topic = publisher.create_topic(topic_path)
-		print(u'Info: Topic %s created' % topic_name)
-	except google.api_core.exceptions.AlreadyExists as e:
-		print(u'Warning: Topic %s already exists' % topic_name)
-	except Exception as e:
-		print(u'Error: Something is wrong, review code please')
-		raise
-	# Topic
-	print(topic_path)
-	return topic_path
 
 def setup_storage_bucket(bucket_name):
 	# Storage Client

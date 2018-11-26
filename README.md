@@ -13,15 +13,21 @@ Download
 See file [functions/gcf-download-file/main.py](functions/gcf-download-file/main.py) for the code.
 The dependencies are listed in [functions/gcf-download-file/requirements.txt](functions/gcf-download-file/requirements.txt).
 
+Parser
+See file [functions/gcf-parser-file/main.py](functions/gcf-parser-file/main.py) for the code.
+The dependencies are listed in [functions/gcf-parser-file/requirements.txt](functions/gcf-parser-file/requirements.txt).
+
 
 ## Trigger rules
 
-The functions triggers on http request and on Create new file in specific Bucket.
+The functions triggers on http request and on create new file in specific Bucket.
 
 
 ## Storage and Database Structure
 
-Users upload an image to Storage to the auto generated path `/<hash uuid>/<filename>` and save the path and file reference in Cloud Datastore.
+Users upload an file to Storage bucket `gcf-uploaded-files` and save the path and file reference in Cloud Datastorekind `gcf-uploader-manager`.
+Data report will be saved in Cloud Datastore `kind gcf-report-manager`.
+Downloaded files will be saved in Bucket `gcf-downloaded-files`.
 
 ## Setting up the sample
 
